@@ -6,7 +6,7 @@ spring:
       database: store-main
 
 server:
- port: 0
+ port: 9999
  
 eureka:
  client:
