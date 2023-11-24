@@ -7,4 +7,10 @@ eureka:
     defaultZone: http://localhost:8761/eureka/
 
 app:
-  secret: karam is the owner
+  secret: karam is the owner + this is added on runtime
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
