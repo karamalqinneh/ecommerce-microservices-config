@@ -2,9 +2,23 @@ server:
  port: 0
  
 eureka:
- client:
-  service-url:
-    defaultZone: http://localhost:8761/eureka/
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://service-registry:8761/eureka
+  instance:
+    prefer-ip-address: true
+
+resilience4j:
+  circuit-breaker:
+    instances:
+      reviewService:
+        event-consumer-buffer-size: 10
+        registerHealthIndicator: true
+        waitDurationInOpenState: 5s
+        failureRateThreshold: 60
+        permittedNumberOfCallsInHalfOpenState: 3
 
 app:
   secret: karam is the owner + this is added on runtime + now removed on runtime
